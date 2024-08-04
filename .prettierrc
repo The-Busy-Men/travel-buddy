@@ -1,4 +1,8 @@
 {
   "singleQuote": true,
-  "trailingComma": "all"
+  "trailingComma": "all",
+  "tabWidth": 2,
+  "insert_final_newline": true,
+  "bracketSpacing": true,
+  "arrowParens": "always"
 }
