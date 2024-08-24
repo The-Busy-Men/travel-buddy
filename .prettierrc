@@ -4,5 +4,11 @@
   "tabWidth": 2,
   "insert_final_newline": true,
   "bracketSpacing": true,
-  "arrowParens": "always"
+  "arrowParens": "always",
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true
+  },
+  "jsxBracketSameLine": true
 }

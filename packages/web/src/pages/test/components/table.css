@@ -1,0 +1,105 @@
+/* Basic reset for margin, padding, and border-box */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Wrapper styling */
+  div {
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Table styling */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1rem;
+    text-align: left;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+  
+  /* Table header styling */
+  thead tr {
+    background-color: #343a40;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  th, td {
+    padding: 12px 15px;
+  }
+  
+  /* Table body styling */
+  tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  /* Alternate row colors */
+  tbody tr:nth-of-type(even) {
+    background-color: #f8f9fa;
+  }
+  
+  tbody tr:nth-of-type(odd) {
+    background-color: #ffffff;
+  }
+  
+  /* Hover effect */
+  tbody tr:hover {
+    background-color: #f1f1f1;
+    transform: scale(1.01);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  /* Table cell styling */
+  td {
+    border-right: 1px solid #dddddd;
+  }
+  
+  td:last-child {
+    border-right: none;
+  }
+  
+  /* Responsive table */
+  @media screen and (max-width: 600px) {
+    table {
+      width: 100%;
+    }
+  
+    thead {
+      display: none;
+    }
+  
+    tbody tr {
+      display: block;
+      margin-bottom: 10px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+  
+    tbody tr td {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      border-bottom: 1px solid #dddddd;
+      position: relative;
+    }
+  
+    tbody tr td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 10px;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      color: #343a40;
+    }
+  }
+  
