@@ -35,14 +35,17 @@ $ npm install
 ## Running the app
 
 ```bash
-# development
+# server
+$ npm run server start
+
+## in watch mode (hot realoading)
+$ npm run server:dev
+
+# web
+$ npm run web start
+
+# both in one (not working)
 $ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
 ```
 
 ## Test
