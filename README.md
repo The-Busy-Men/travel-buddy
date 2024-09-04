@@ -26,6 +26,10 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+## Good to have
+- postgres (pgAdmin4) for local db
+- Postman
+
 ## Installation
 
 ```bash
