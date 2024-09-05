@@ -1,0 +1,60 @@
+/* Header.css */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo {
+    font-weight: bold;
+    background: linear-gradient(to right, #ff5a5f, #333);
+    -webkit-background-clip: text; /* For Safari */
+    -webkit-text-fill-color: transparent; /* For Safari */
+    background-clip: text; /* For other browsers */
+    color: transparent; /* Fallback for unsupported browsers */
+    font-size: 24px;
+  }
+  
+  .nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #555;
+    font-size: 16px;
+  }
+  
+  .nav a:hover {
+    color: #333;
+  }
+  
+  .btn-primary {
+    padding: 10px 20px;
+    background-color: #ff5a5f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    background-color: #ff4a4f;
+  }
+
+  /* Style for the container holding the icon and text */
+.logo-container {
+  display: flex;
+  align-items: center; /* Align items vertically in the center */
+}
+
+/* Optional spacing between the icon and the text */
+.logo-container .logo {
+  margin-left: 5px; /* Adjust this value to control the spacing */
+}
+
+/* Adjust the size of the icon if needed */
+.logo-container svg {
+  width: 30px; /* Adjust size as per requirement */
+  height: 30px; /* Adjust size as per requirement */
+}

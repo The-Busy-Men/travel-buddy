@@ -1,0 +1,36 @@
+/* index.css */
+/* index.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
+  }
+  
+  h1, h2, h3 {
+    margin: 0;
+  }
+  
+  section {
+    padding: 60px 50px;
+  }
+  
+  .btn-primary {
+    background-color: #ff5a5f;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    background-color: #ff4a4f;
+  }
+  
