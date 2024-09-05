@@ -1,0 +1,39 @@
+/* Hero.css */
+.hero {
+    height: 75vh;
+    background: url('https://source.unsplash.com/1600x900/?travel') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    text-align: center;
+  }
+  
+  .hero-content h1 {
+    font-size: 50px;
+    font-weight: bold;
+  }
+  
+  .hero-content p {
+    margin: 20px 0;
+    font-size: 20px;
+  }
+  
+  .search-bar {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .search-bar input {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+  }
+  
+  .search-bar button {
+    padding: 10px 20px;
+  }
+  
