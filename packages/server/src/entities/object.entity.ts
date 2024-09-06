@@ -40,6 +40,9 @@ export class ObjectEntity {
   @Column('text', { nullable: true })
   amenities: string;
 
-  @ManyToOne(() => Address, (address) => address.id)
+  @ManyToOne(() => Address, (address) => address.id, {
+    onDelete: 'SET NULL',
+    nullable: true,
+  })
   address: Address;
 }
