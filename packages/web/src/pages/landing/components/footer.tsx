@@ -9,9 +9,7 @@ const Footer = () => {
         <div className="footer-column">
           <h3>About Us</h3>
           <p>
-            We offer personalized travel experiences for every kind of traveler.
-            Whether you're seeking adventure, relaxation, or discovery, we have
-            the perfect destination for you.
+            Ye
           </p>
         </div>
 
@@ -28,8 +26,8 @@ const Footer = () => {
 
         <div className="footer-column">
           <h3>Contact Info</h3>
-          <p>Email: info@travelsite.com</p>
-          <p>Phone: +1 (800) 123-4567</p>
+          <p>Email: email@email.com</p>
+          <p>Phone: +0 (000) 000-000-00</p>
           <div className="social-icons">
             <a href="https://facebook.com" target="_blank" rel="noreferrer">FB</a>
             <a href="https://instagram.com" target="_blank" rel="noreferrer">IG</a>
@@ -39,7 +37,7 @@ const Footer = () => {
       </div>
       
       <div className="footer-bottom">
-        <p>© 2024 TravelSite. All Rights Reserved.</p>
+        <p>© 2024 Travel Buddy. All Rights Reserved.</p>
       </div>
     </footer>
   );
