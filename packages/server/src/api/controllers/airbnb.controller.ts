@@ -10,7 +10,7 @@ export class AirBnbController {
   constructor(private readonly airbnbService: AirBnbService) {}
 
   @Get()
-  @ApiResponse({ status: 200, description: 'Get All AirBnbs and the count' })
+  @ApiResponse({ status: 200, description: 'Get All AirBnbs' })
   getAllAirBnbs() {
     return this.airbnbService.getAllAirBnbs();
   }

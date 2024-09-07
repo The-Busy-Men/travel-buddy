@@ -13,7 +13,7 @@ export class AirBnbService {
   ) {}
 
   async getAllAirBnbs() {
-    return await this.airbnbRepository.findAndCount();
+    return await this.airbnbRepository.find({ relations: ['address'] });
   }
 
   async getAirBnbById(id: UUID) {

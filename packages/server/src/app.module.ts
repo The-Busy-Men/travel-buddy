@@ -14,6 +14,8 @@ import { Hotel } from './entities/hotel.entity';
 import { AirBnb } from './entities/airbnb.entity';
 import { Address } from './entities/address.entity';
 import { AirBnbModule } from './features/object/airbnb/airbnb.module';
+import { AddressController } from './api/controllers/address.controller';
+import { AddressModule } from './features/address/address.module';
 
 console.log({
   port: getDBPort(),
@@ -36,8 +38,9 @@ console.log({
     }),
     TypeOrmModule.forFeature([Test, Hotel, AirBnb, Address]),
     AirBnbModule,
+    AddressModule,
   ],
-  controllers: [AppController],
-  providers: [AppService, AirBnbModule],
+  controllers: [AppController, AddressController],
+  providers: [AppService, AirBnbModule, AddressModule],
 })
 export class AppModule {}
