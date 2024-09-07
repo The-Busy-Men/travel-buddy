@@ -8,5 +8,6 @@ import { AirBnb } from 'src/entities/airbnb.entity';
   imports: [TypeOrmModule.forFeature([AirBnb])],
   controllers: [AirBnbController],
   providers: [AirBnbService],
+  exports: [AirBnbService],
 })
 export class AirBnbModule {}
