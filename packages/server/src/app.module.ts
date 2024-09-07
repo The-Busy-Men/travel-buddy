@@ -10,6 +10,14 @@ import {
   getDBPort,
   getDBUser,
 } from './core/configs/env.config';
+import { Hotel } from './entities/hotel.entity';
+import { AirBnb } from './entities/airbnb.entity';
+import { Address } from './entities/address.entity';
+import { AirBnbModule } from './features/object/airbnb/airbnb.module';
+import { AddressController } from './api/controllers/address.controller';
+import { AddressModule } from './features/address/address.module';
+import { HotelModule } from './features/object/hotel/hotel.module';
+import { HotelController } from './api/controllers/hotel.controller';
 
 console.log({
   port: getDBPort(),
@@ -28,11 +36,14 @@ console.log({
       password: getDBPassword(),
       database: getDBName(),
       synchronize: true,
-      entities: [Test],
+      entities: [Test, Hotel, AirBnb, Address],
     }),
-    TypeOrmModule.forFeature([Test]),
+    TypeOrmModule.forFeature([Test, Hotel, AirBnb, Address]),
+    AirBnbModule,
+    AddressModule,
+    HotelModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, AddressController, HotelController],
+  providers: [AppService, AirBnbModule, AddressModule, HotelModule],
 })
 export class AppModule {}

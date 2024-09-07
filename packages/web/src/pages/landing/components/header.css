@@ -16,6 +16,7 @@
     background-clip: text; /* For other browsers */
     color: transparent; /* Fallback for unsupported browsers */
     font-size: 24px;
+    cursor: pointer;
   }
   
   .nav a {
