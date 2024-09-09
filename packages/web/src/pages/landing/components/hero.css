@@ -1,13 +1,24 @@
 /* Hero.css */
 .hero {
     height: 75vh;
-    background: url('https://source.unsplash.com/1600x900/?travel') no-repeat center center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #333;
+    color: white;
     text-align: center;
+    overflow: hidden;
   }
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?q=80&w=2938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+  filter: blur(1vh);
+  z-index: -1;
+}
   
   .hero-content h1 {
     font-size: 50px;

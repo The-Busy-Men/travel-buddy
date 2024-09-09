@@ -29,6 +29,14 @@ export const getDBPassword = () => {
   return getEnvAsString('DB_PASSWORD');
 };
 
+export const getJwtKey = () => {
+  return getEnvAsString('AUTH_KEY');
+};
+
+export const getNodeEnv = () => {
+  return getEnvAsString('NODE_ENV');
+};
+
 function getEnvAsString(key: string): string {
   const value = process.env[key];
   if (value !== undefined) {

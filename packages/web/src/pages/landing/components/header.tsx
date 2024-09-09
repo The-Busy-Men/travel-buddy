@@ -29,7 +29,7 @@ const Header = () => {
           <a href="#home">Home</a>
           <a href="#destinations">Destinations</a>
           <a href="#experiences">Experiences</a>
-          <a href="#blog">Blog</a>
+          <a href='/b/login'>Business</a>
           <a href="#contact" onClick={openModal}>Contact</a>
           <button className="btn-primary">Book Now</button>
         </nav>

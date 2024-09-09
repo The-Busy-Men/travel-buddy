@@ -1,6 +1,7 @@
 import { DocumentBuilder } from '@nestjs/swagger';
 
 export const swaggerConfig = new DocumentBuilder()
+  .addBearerAuth()
   .setTitle('Travel Buddy')
   .setDescription('Travel Buddy API')
   .setVersion('0.1')
