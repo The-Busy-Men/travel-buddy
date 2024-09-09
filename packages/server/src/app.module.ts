@@ -18,6 +18,12 @@ import { AddressController } from './api/controllers/address.controller';
 import { AddressModule } from './features/address/address.module';
 import { HotelModule } from './features/object/hotel/hotel.module';
 import { HotelController } from './api/controllers/hotel.controller';
+import { User } from './entities/user.entity';
+import { UserModule } from './features/user/user.module';
+import { UserController } from './api/controllers/user.controller';
+import { Group } from './entities/group.entity';
+import { AuthModule } from './features/auth/auth.module';
+import { AuthController } from './api/controllers/auth.controller';
 
 console.log({
   port: getDBPort(),
@@ -36,14 +42,29 @@ console.log({
       password: getDBPassword(),
       database: getDBName(),
       synchronize: true,
-      entities: [Test, Hotel, AirBnb, Address],
+      entities: [Test, Hotel, AirBnb, Address, User, Group],
     }),
-    TypeOrmModule.forFeature([Test, Hotel, AirBnb, Address]),
+    TypeOrmModule.forFeature([Test, Hotel, AirBnb, Address, User, Group]),
     AirBnbModule,
     AddressModule,
     HotelModule,
+    UserModule,
+    AuthModule,
   ],
-  controllers: [AppController, AddressController, HotelController],
-  providers: [AppService, AirBnbModule, AddressModule, HotelModule],
+  controllers: [
+    AppController,
+    AddressController,
+    HotelController,
+    UserController,
+    AuthController,
+  ],
+  providers: [
+    AppService,
+    AirBnbModule,
+    AddressModule,
+    HotelModule,
+    UserModule,
+    AuthModule,
+  ],
 })
 export class AppModule {}

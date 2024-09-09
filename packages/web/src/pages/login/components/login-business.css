@@ -1,0 +1,89 @@
+.section {
+  height: 75vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+  text-align: center;
+}
+
+.section-content h1 {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.lock {
+  margin-right: 1rem;
+  color: rgb(0, 192, 0);
+}
+
+/* Container for the login form */
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  background: white;
+  padding: 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* Form elements */
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-col {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-col p {
+  margin: 0 0 8px 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+/* Input hover and focus */
+.form-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+/* Button styles */
+.form-button {
+  background-color: #007bff;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.form-button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+  .login-container {
+    padding: 20px;
+    width: 90%;
+  }
+}

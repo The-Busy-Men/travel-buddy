@@ -1,0 +1,42 @@
+.section {
+  height: 75vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.logout-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 75vh;
+  text-align: center;
+}
+
+.logout-container h1 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.logout-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #bf0000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #a80000;
+}
+
+.lock-o {
+  color: rgb(178, 0, 0);
+} 
