@@ -1,0 +1,165 @@
+/* Modern card design for the object details */
+.object-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0rem;
+  height: 100vh;
+  width: 100%;
+}
+
+.object-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 90%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.object-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.object-info {
+  padding: 1rem;
+}
+
+.object-info h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.object-description {
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.object-meta {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.meta-item {
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.meta-item .label {
+  font-weight: bold;
+  color: #333;
+}
+
+.meta-item .value {
+  color: #666;
+}
+
+/* Rating bar container */
+.rating-bar-container {
+  display: flex;
+  align-items: center; /* Vertically centers the progress bar and number */
+  gap: 10px; /* Adjusted to align better */
+  margin: 0; /* Ensure no unintended margins */
+}
+
+.rating-bar {
+  width: 150px; /* Adjust as needed */
+  height: 0.5rem;
+  background-color: #e0e0e0; /* Softer background color */
+  border-radius: 50px; /* Rounded corners */
+  position: relative; /* Make it easier to position the fill */
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2); /* Changed to inset shadow to avoid shifting */
+  overflow: hidden; /* Keep the fill within the container */
+}
+
+.rating-bar-fill {
+  height: 0.5rem;
+  
+  border-radius: 50px; /* Keep the fill rounded */
+  transition: width 0.4s ease-in-out; /* Smooth animation */
+  position: absolute; /* Ensure it stays within the rating-bar */
+  top: 0;
+  left: 0;
+}
+
+.rating-number {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #333;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+  margin: 0; /* Ensure no margin pushes it down */
+  padding: 0; /* Ensure no padding moves it */
+}
+
+/* Stars styling */
+.stars-container {
+  display: flex;
+  gap: 5px;
+}
+
+/* Hotel-specific star rating */
+.stars-container svg {
+  width: 20px;
+  height: 20px;
+  color: gold;
+}
+
+.object-amenities h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.object-amenities p {
+  color: #555;
+}
+
+/* General chip styles */
+.chip {
+  display: inline-block;
+  padding: 0.3em 0.6em;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: white;
+  border-radius: 16px;
+  text-align: center;
+  min-width: 50px;
+}
+
+/* Specific styles for the active and inactive states */
+.active-chip.active {
+  background-color: #4caf50; /* Green for active */
+}
+
+.active-chip.inactive {
+  background-color: #f44336; /* Red for inactive */
+}
+
+
+/* Responsive styles */
+@media (min-width: 768px) {
+  .object-card {
+    flex-direction: row;
+  }
+
+  .object-image {
+    width: 50%;
+  }
+
+  .object-info {
+    width: 50%;
+  }
+}
