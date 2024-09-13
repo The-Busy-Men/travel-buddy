@@ -23,21 +23,21 @@ export class HotelController {
   @Get()
   @Roles('user')
   @ApiResponse({ status: 200, description: 'Get All Hotels' })
-  getAllAirBnbs() {
+  getAllHotels() {
     return this.hotelService.getAllHotels();
   }
 
   @Get(':id')
   @Roles('user')
   @ApiResponse({ status: 200, description: 'Returns Hotel by Id' })
-  getAirBnbById(@Param('id') id: UUID) {
+  getHotelById(@Param('id') id: UUID) {
     return this.hotelService.getHotelById(id);
   }
 
   @Post()
   @Roles('user')
   @ApiResponse({ status: 201, description: 'Creates a new Hotel' })
-  createAirBnb(@Body() body: HotelDto) {
+  createHotel(@Body() body: HotelDto) {
     return this.hotelService.createHotel(body);
   }
 
@@ -48,14 +48,14 @@ export class HotelController {
     description: 'Update an Hotel by Id',
   })
   @ApiBody({ type: UpdateHotelDto })
-  updateAirBnb(@Param('id') id: UUID, @Body() body: UpdateHotelDto) {
+  updateHotel(@Param('id') id: UUID, @Body() body: UpdateHotelDto) {
     return this.hotelService.updateHotel(id, body);
   }
 
   @Delete(':id')
   @Roles('user')
   @ApiResponse({ status: 200, description: 'Delete an Hotel by Id' })
-  deleteAirBnb(@Param('id') id: UUID) {
+  deleteHotel(@Param('id') id: UUID) {
     return this.hotelService.deleteHotel(id);
   }
 }
