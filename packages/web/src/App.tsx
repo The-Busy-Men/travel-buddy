@@ -8,11 +8,9 @@ function App() {
   const queryClient = new QueryClient();
   return (
     <>
-    <React.StrictMode>
       <QueryClientProvider client={queryClient}>
         <AppRoutes />
       </QueryClientProvider>
-    </React.StrictMode>
     </>
   );
 }

@@ -3,6 +3,7 @@ import './components/login-business.css';
 import { FaLockOpen } from "react-icons/fa";
 import { loginUser } from './hooks/login';
 import { useNavigate } from 'react-router-dom';
+import { isUserAllowed, UserRoles } from '../utils/isUserAllowed';
 
 export const LoginNow = () => {
   const [email, setEmail] = useState('')
@@ -15,13 +16,19 @@ export const LoginNow = () => {
     console.log(token)
 
     localStorage.setItem('access_token', token)
-    navigate('/test')
+    
+    if (isUserAllowed({requiredRoles: [UserRoles.moderator, UserRoles.admin, UserRoles.super_admin]})) {
+      navigate('/admin')
+    }
+    else {
+      navigate('/')
+    } 
   };
 
   return (
   <>
     <section className="section">
-      <div className="section-content">
+      <div className="section-content flex flex-col items-center">
         <FaLockOpen size={50} className='lock' />
         <h1>Login</h1>
         <div className="login-container">

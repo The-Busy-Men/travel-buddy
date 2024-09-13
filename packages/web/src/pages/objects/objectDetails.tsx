@@ -1,22 +1,7 @@
 import React from 'react';
 import './components/objectDetails.css';
-import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
 import { AirBnb, Hotel, PriceClass } from '../../api/entities';
-
-// Function to render stars based on hotel rating
-const renderStars = (rating: number) => {
-  const stars = [];
-  for (let i = 1; i <= 5; i++) {
-    if (rating >= i) {
-      stars.push(<FaStar key={i} color="gold" />);
-    } else if (rating + 0.5 === i) {
-      stars.push(<FaStarHalfAlt key={i} color="gold" />);
-    } else {
-      stars.push(<FaRegStar key={i} color="gold" />);
-    }
-  }
-  return stars;
-};
+import StarsWithTooltip from './components/stars';
 
 // Type guard to check if objectData is of type Hotel or AirBnb
 const isHotel = (objectData: Hotel | AirBnb): objectData is Hotel => {
@@ -93,7 +78,7 @@ const ObjectDetails = ({ objectData, objectType }: { objectData: Hotel | AirBnb;
               <>
                 <div className="meta-item">
                   <span className="label">Stars:</span>
-                  <div className="stars-container">{renderStars(stars || 0)}</div>
+                  <StarsWithTooltip rating={stars as number} />
                 </div>
                 <div className="meta-item">
                   <span className="label">Number of Rooms:</span>

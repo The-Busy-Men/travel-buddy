@@ -11,17 +11,16 @@ interface AllObjectPageProps {
 
 export const AllObjectsPage = ({ objectType }: AllObjectPageProps) => {
   const navigate = useNavigate();
-  const accessToken = localStorage.getItem('access_token');
+  
 
   useEffect(() => {
     // Only run the check once when the component mounts
     if (!isUserAllowed({
-      requiredRoles: [UserRoles.admin, UserRoles.super_admin],
-      token: accessToken as string,
+      requiredRoles: [UserRoles.admin, UserRoles.super_admin]
     })) {
       navigate('/');  // Redirect if the user is not allowed
     }
-  }, [accessToken, navigate]);
+  }, [navigate]);
 
   const { data, isLoading } = useObjects({ objectType });
 

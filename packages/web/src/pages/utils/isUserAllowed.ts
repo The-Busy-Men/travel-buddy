@@ -10,7 +10,6 @@ export enum UserRoles {
 
 interface userAllowedProps {
   requiredRoles: UserRoles[];
-  token: string;
 }
 
 export interface JwtPayload {
@@ -19,10 +18,8 @@ export interface JwtPayload {
   roles: UserRoles[];
 }
 
-export const isUserAllowed = ({
-  requiredRoles,
-  token,
-}: userAllowedProps): boolean => {
+export const isUserAllowed = ({ requiredRoles }: userAllowedProps): boolean => {
+  const token = localStorage.getItem('access_token');
   if (!token) return false;
 
   try {

@@ -107,7 +107,18 @@
 /* Stars styling */
 .stars-container {
   display: flex;
-  gap: 5px;
+  flex-direction: row;
+  gap: 2px;
+  position: relative;
+}
+
+.stars-tooltip {
+  position: absolute;
+  padding: 5px;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 0.8rem;
+  white-space: nowrap;
 }
 
 /* Hotel-specific star rating */

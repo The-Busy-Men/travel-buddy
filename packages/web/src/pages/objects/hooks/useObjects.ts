@@ -3,7 +3,7 @@ import { getApiClient } from '../../../api/client';
 
 export const useObjects = ({ objectType }: { objectType: string }) => {
   const { data, isLoading } = useQuery({
-    queryKey: ['object-all'],
+    queryKey: ['objects'],
     queryFn: async () => {
       switch (objectType) {
         case 'hotel': {

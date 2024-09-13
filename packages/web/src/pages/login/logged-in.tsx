@@ -13,7 +13,7 @@ export const Logout = () => {
 
   return (
     <section className="section">
-    <div className="section-content">
+    <div className="section-content flex flex-col items-center">
       <FaLock size={50} className='lock-o' />
       <h1>Logout</h1>
       <div className="login-container">

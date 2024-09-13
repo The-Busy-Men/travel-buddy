@@ -38,9 +38,26 @@
     border-radius: 5px;
     cursor: pointer;
   }
+
+  .btn-secondary {
+    padding: 10px 20px;
+    background-color: #940000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .btn-secondary a {
+    color: white;
+  }
   
-  .btn-primary:hover {
-    background-color: #ff4a4f;
+  .btn-secondary a:hover {
+    color: white;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #750000;
   }
 
   /* Style for the container holding the icon and text */
