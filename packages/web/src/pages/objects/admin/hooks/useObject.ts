@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { getApiClient } from '../../../api/client';
+import { getApiClient } from '../../../../api/client';
 
 export const useObject = ({
   objectId,

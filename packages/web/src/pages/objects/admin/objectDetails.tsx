@@ -1,6 +1,6 @@
 import React from 'react';
 import './components/objectDetails.css';
-import { AirBnb, Hotel, PriceClass } from '../../api/entities';
+import { AirBnb, Hotel, PriceClass } from '../../../api/entities';
 import StarsWithTooltip from './components/stars';
 
 // Type guard to check if objectData is of type Hotel or AirBnb
@@ -18,11 +18,11 @@ const ObjectDetails = ({ objectData, objectType }: { objectData: Hotel | AirBnb;
 
   const getDynamicGradient = (value: number) => {
     if (value <= 50) {
-      // For values <= 50, interpolate between crimson and dark orange
-      return `linear-gradient(90deg, #b34242 0%, #d67d2e ${value}%, #e0e0e0 ${value}%)`;
+      // For values <= 50, transition between crimson and dark orange smoothly
+      return `linear-gradient(90deg, #b34242, #d67d2e)`;
     } else {
-      // For values > 50, interpolate between dark orange and forest green
-      return `linear-gradient(90deg, #b34242 0%, #d67d2e 50%, #388e3c ${value}%, #e0e0e0 ${value}%)`;
+      // For values > 50, transition between dark orange and forest green
+      return `linear-gradient(90deg, #d67d2e, #388e3c)`;
     }
   };
 
@@ -59,7 +59,7 @@ const ObjectDetails = ({ objectData, objectType }: { objectData: Hotel | AirBnb;
                 <div className="rating-bar">
                   <div
                     className="rating-bar-fill"
-                    style={{ width: `${objectData.rating}%`, background: getDynamicGradient(objectData.rating as number), }}
+                    style={{ width: `${(objectData.rating as number)/100 * 100}%`, background: getDynamicGradient(objectData.rating as number), }}
                   />
                 </div>
                 <span className="rating-number">{objectData.rating}/100</span>

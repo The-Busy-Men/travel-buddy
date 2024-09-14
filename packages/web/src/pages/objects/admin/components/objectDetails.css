@@ -76,24 +76,23 @@
 }
 
 .rating-bar {
-  width: 150px; /* Adjust as needed */
+  width: 150px;
   height: 0.5rem;
-  background-color: #e0e0e0; /* Softer background color */
-  border-radius: 50px; /* Rounded corners */
-  position: relative; /* Make it easier to position the fill */
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2); /* Changed to inset shadow to avoid shifting */
-  overflow: hidden; /* Keep the fill within the container */
+  background-color: #e0e0e0;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
 }
 
 .rating-bar-fill {
-  height: 0.5rem;
-  
-  border-radius: 50px; /* Keep the fill rounded */
-  transition: width 0.4s ease-in-out; /* Smooth animation */
-  position: absolute; /* Ensure it stays within the rating-bar */
+  height: 100%;
+  border-radius: 0px;
+  transition: width 0.4s ease-in-out;
+  position: absolute;
   top: 0;
   left: 0;
 }
+
 
 .rating-number {
   font-size: 0.9rem;

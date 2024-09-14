@@ -7,8 +7,8 @@ import NotFound from './pages/error/notFound';
 import Header from './pages/landing/components/header';
 import Footer from './pages/landing/components/footer';
 import { LoginBusiness } from './pages/login/login-business';
-import {ObjectPage} from './pages/objects';
-import AllObjectsPage from './pages/objects/object-all';
+import {ObjectPage} from './pages/objects/admin';
+import AllObjectsPage from './pages/objects/admin/object-all';
 import { AdminMainPage } from './pages/admin/admin-overview';
 
 const HotelPageWrapper = () => {
@@ -22,7 +22,7 @@ const AirBnbPageWrapper = () => {
 };
 
 const AppRoutes = () => {
-  // Check if the current route contains "admin"
+  // Check if the current route starts with "admin"
   const isAdminRoute = window.location.pathname.startsWith('/admin');
 
   return (

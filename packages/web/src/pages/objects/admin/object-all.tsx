@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import ObjectDetails from './objectDetails';
 import { useObjects } from './hooks/useObjects';
-import { Hotel, AirBnb } from '../../api/entities';
-import { isUserAllowed, UserRoles } from '../utils/isUserAllowed';
+import { Hotel, AirBnb } from '../../../api/entities';
+import { isUserAllowed, UserRoles } from '../../utils/isUserAllowed';
 import { useNavigate } from 'react-router-dom';
 
 interface AllObjectPageProps {

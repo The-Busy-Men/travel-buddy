@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: black;
     text-align: center;
     overflow: hidden;
   }
@@ -23,11 +23,13 @@
   .hero-content h1 {
     font-size: 50px;
     font-weight: bold;
+    color: white;
   }
   
   .hero-content p {
     margin: 20px 0;
     font-size: 20px;
+    color: white;
   }
   
   .search-bar {
