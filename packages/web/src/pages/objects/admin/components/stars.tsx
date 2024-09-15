@@ -53,7 +53,7 @@ const StarsWithTooltip: React.FC<StarsWithTooltipProps> = ({ rating }) => {
           className="stars-tooltip"
           style={{
             position: 'absolute',
-            top: '-25px',
+            top: '-30px',
             left: '0',
             backgroundColor: getTooltipColor(),
             padding: '5px',

@@ -4,12 +4,6 @@
   text-align: center;
 }
 
-h1 {
-  font-size: 2rem;
-  margin-bottom: 30px;
-  color: #aa0000;
-}
-
 /* Admin grid layout */
 .admin-grid {
   display: grid;

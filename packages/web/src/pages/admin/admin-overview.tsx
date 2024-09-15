@@ -71,9 +71,10 @@ export const AdminMainPage = () => {
       navigate('/')
     }
   }, [navigate]);
+
   return ( 
     <div className="admin-page">
-      <h1 className='text-4xl font-bold'>Admin Dashboard</h1>
+      <h1 className='text-4xl font-bold mb-30 text-red-800 flex justify-center mb-10'>Admin Dashboard</h1>
       <div className="admin-grid">
         {adminItems.map((item) => (
           isUserAllowed({requiredRoles: item.requiredRoles}) && 

@@ -10,15 +10,26 @@ import { LoginBusiness } from './pages/login/login-business';
 import {ObjectPage} from './pages/objects/admin';
 import AllObjectsPage from './pages/objects/admin/object-all';
 import { AdminMainPage } from './pages/admin/admin-overview';
+import UserObjectPage from './pages/objects/users';
 
-const HotelPageWrapper = () => {
+const HotelAdminPageWrapper = () => {
   const { hotelId } = useParams<{ hotelId: string }>();
   return <ObjectPage objectId={hotelId!} objectType="hotel" />;
 };
 
-const AirBnbPageWrapper = () => {
+const HotelUserPageWrapper = () => {
+  const { hotelId } = useParams<{ hotelId: string }>();
+  return <UserObjectPage objectId={hotelId!} objectType="hotel" />;
+};
+
+const AirBnbAdminPageWrapper = () => {
   const { airbnbId } = useParams<{ airbnbId: string }>();
   return <ObjectPage objectId={airbnbId!} objectType="airbnb" />;
+};
+
+const AirBnbUserPageWrapper = () => {
+  const { airbnbId } = useParams<{ airbnbId: string }>();
+  return <UserObjectPage objectId={airbnbId!} objectType="airbnb" />;
 };
 
 const AppRoutes = () => {
@@ -32,10 +43,12 @@ const AppRoutes = () => {
         <Route path="/" element={<Landing />} />
         <Route path="/test" element={<Test />} />
         <Route path='/admin' element={<AdminMainPage />} />
-        <Route path="/admin/hotels/:hotelId" element={<HotelPageWrapper />} />
+        <Route path="/admin/hotels/:hotelId" element={<HotelAdminPageWrapper />} />
         <Route path="/admin/hotels" element={<AllObjectsPage objectType='hotel' />} />
-        <Route path="/admin/airbnbs/:airbnbId" element={<AirBnbPageWrapper />} />
+        <Route path="/admin/airbnbs/:airbnbId" element={<AirBnbAdminPageWrapper />} />
         <Route path="/admin/airbnbs" element={<AllObjectsPage objectType='airbnb' />} />
+        <Route path="/hotels/:hotelId" element={<HotelUserPageWrapper />} />
+        <Route path="/airbnbs/:airbnbId" element={<AirBnbUserPageWrapper />} />
         <Route path="/b/login" element={<LoginBusiness />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

@@ -21,7 +21,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="header">
+      <header className="header m-4">
         <span className="logo-container">
           <LuPalmtree color='#ff5a5f' />
           <div className="logo" onClick={() => navigate('/')}>Travel Buddy</div>

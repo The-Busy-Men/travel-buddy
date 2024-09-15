@@ -42,14 +42,17 @@ const ObjectDetails = ({ objectData, objectType }: { objectData: Hotel | AirBnb;
     <section className="object-details">
       <div className="object-card">
         <div className="object-image">
-          <img
-            src="https://via.placeholder.com/400x200" // Replace with actual image URL if available
-            alt={objectData.name}
-          />
+          <a href={`/admin/hotels/${objectData.id}`}>
+            <img
+              src="https://via.placeholder.com/400x200" // Replace with actual image URL if available
+              alt={objectData.name}
+            />
+          </a>
         </div>
         <div className="object-info">
           <h2>{objectData.name}</h2>
           <p className="object-description">{objectData.description || 'No description available.'}</p>
+          <p className='font-bold hover:text-green-400 hover:cursor-pointer' onClick={() => navigator.clipboard.writeText(objectData.id)}>Object ID: {objectData.id}</p>
 
           {/* Shared object fields */}
           <div className="object-meta">
