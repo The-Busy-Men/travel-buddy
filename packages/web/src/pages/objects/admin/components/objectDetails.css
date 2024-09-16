@@ -149,6 +149,18 @@
   min-width: 50px;
 }
 
+/* Settings Button */
+.btn-object {
+  box-shadow: 8px 8px 8px rgba(72, 72, 72, 0.365);
+  background: white;
+  border-radius: 10px;
+}
+
+.btn-object:hover {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+
 /* Specific styles for the active and inactive states */
 .active-chip.active {
   background-color: #4caf50; /* Green for active */

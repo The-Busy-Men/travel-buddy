@@ -2,6 +2,9 @@ import React from 'react';
 import './components/objectDetails.css';
 import { AirBnb, Hotel, PriceClass } from '../../../api/entities';
 import StarsWithTooltip from './components/stars';
+import { RiContactsBook3Line } from "react-icons/ri";
+import { FaPeopleGroup } from "react-icons/fa6";
+import { IoIosSettings } from "react-icons/io";
 
 // Type guard to check if objectData is of type Hotel or AirBnb
 const isHotel = (objectData: Hotel | AirBnb): objectData is Hotel => {
@@ -48,11 +51,27 @@ const ObjectDetails = ({ objectData, objectType }: { objectData: Hotel | AirBnb;
               alt={objectData.name}
             />
           </a>
+          <div className='flex flex-row p-5'>
+            <RiContactsBook3Line strokeWidth={2} className='mt-1 mr-1' /> 
+            <p className='font-bold'>Owner(s):</p>
+            {/* Owner will be User, Click to start chat */}
+            {objectData.owners.map((owner) => 
+            <div className='ml-2 hover:text-blue-300'>
+              <a href="/" className='underline underline-offset-1'>{owner}</a>
+            </div>
+            )}
+          </div>
+          <div className='flex flex-row p-5'>
+            <FaPeopleGroup strokeWidth={2} className='mt-1 mr-1' /> <p className='font-bold mr-2'>Groups:</p> <a href="/" className='text-red-400 hover:underline underline-offset-1'>NONE</a>
+          </div>
+          <div className='max-w-fit ml-5 mt-5 flex flex-row p-2 btn-object cursor-pointer' onClick={() => console.log("Navigate to settings")}>
+            <IoIosSettings className='mt-1 mr-2' strokeWidth={2} />Object Settings
+          </div>
         </div>
         <div className="object-info">
           <h2>{objectData.name}</h2>
           <p className="object-description">{objectData.description || 'No description available.'}</p>
-          <p className='font-bold hover:text-green-400 hover:cursor-pointer' onClick={() => navigator.clipboard.writeText(objectData.id)}>Object ID: {objectData.id}</p>
+          <p className='font-bold hover:text-green-400 hover:cursor-pointer max-w-fit' onClick={() => navigator.clipboard.writeText(objectData.id)}>Object ID: {objectData.id}</p>
 
           {/* Shared object fields */}
           <div className="object-meta">
