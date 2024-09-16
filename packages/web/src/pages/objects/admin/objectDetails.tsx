@@ -89,8 +89,9 @@ const ObjectDetails = ({ objectData, objectType }: { objectData: Hotel | AirBnb;
             </div>
 
             <div className="meta-item">
-              <span className="label">Active:</span>
-              <span className={`chip active-chip ${objectData.active ? 'active' : 'inactive'}`}>
+              <span className="label">Active:</span> 
+              {/* Make Object activatable by clicking on chip? */}
+              <span className={`chip active-chip ${objectData.active ? 'active' : 'inactive'}`} onClick={() => alert(`Do you want to ${objectData.active ? 'disable' : 'activate'} the Object?`)}>
                 {objectData.active ? 'Yes' : 'No'}
               </span>
             </div>

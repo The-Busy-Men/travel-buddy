@@ -15,7 +15,7 @@ export const Logout = () => {
     <section className="section">
     <div className="section-content flex flex-col items-center">
       <FaLock size={50} className='lock-o' />
-      <h1>Logout</h1>
+      <h1 style={{color: '#b20000'}}>Logout</h1>
       <div className="login-container">
         <button className='logout-button' onClick={handleLogout}>Logout</button>
       </div>
