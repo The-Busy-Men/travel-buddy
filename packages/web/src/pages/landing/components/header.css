@@ -6,6 +6,8 @@
     padding: 20px 50px;
     background-color: #fff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    background-color: #ffffff9c;
   }
   
   .logo {
@@ -38,9 +40,26 @@
     border-radius: 5px;
     cursor: pointer;
   }
+
+  .btn-secondary {
+    padding: 10px 20px;
+    background-color: #940000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .btn-secondary a {
+    color: white;
+  }
   
-  .btn-primary:hover {
-    background-color: #ff4a4f;
+  .btn-secondary a:hover {
+    color: white;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #750000;
   }
 
   /* Style for the container holding the icon and text */

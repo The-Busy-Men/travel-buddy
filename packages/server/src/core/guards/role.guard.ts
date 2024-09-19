@@ -29,8 +29,7 @@ export class RolesGuard implements CanActivate {
     try {
       const decodedToken = this.jwtService.verify(token);
       const userRoles = decodedToken.roles || []; // Default to empty array if roles are not present
-      console.log({ decodedToken });
-      console.log({ userRoles });
+
       return roles.some((role) => userRoles.includes(role));
     } catch (err) {
       return false;

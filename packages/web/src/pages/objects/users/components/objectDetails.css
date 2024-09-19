@@ -1,0 +1,31 @@
+.rating-bar-container {
+  position: relative;
+  display: inline-block;
+}
+
+.rating-bar {
+  position: relative;
+  width: 100px; /* Adjust width as needed */
+  height: 20px; /* Adjust height as needed */
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.rating-bar-fill {
+  height: 100%;
+  background-color: #71c700; /* Default color, will be overridden inline */
+}
+
+.rating-tooltip {
+  position: absolute; 
+  left: 50%;
+  transform: translateX(-50%) translateY(-120%);
+  background-color: #71c700; /* Default color, will be overridden inline */
+  padding: 5px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  transition: opacity 0.3s, visibility 0.3s; /* Smooth transition */
+}

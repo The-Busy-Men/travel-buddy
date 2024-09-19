@@ -1,0 +1,65 @@
+/* General styles */
+.admin-page {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Admin grid layout */
+.admin-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Admin card styling */
+.admin-card {
+  display: block;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+  color: inherit;
+  text-decoration: none;
+  height: 35vh;
+}
+
+.admin-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Disabled card styling */
+.admin-card.disabled {
+  background-color: #e0e0e0; /* Greyed-out background */
+  color: #a0a0a0; /* Greyed-out text */
+  pointer-events: none; /* Disable clicks */
+  box-shadow: none; /* No shadow effect */
+  transform: none; /* No hover effect */
+}
+
+/* Content inside each card */
+.card-content h2 {
+  font-size: 1.5rem;
+  color: #aa0000;
+}
+
+.card-content p {
+  font-size: 1rem;
+  color: #666;
+  margin-top: 10px;
+}
+
+/* Modify disabled content colors */
+.admin-card.disabled .card-content h2,
+.admin-card.disabled .card-content p {
+  color: #a0a0a0; /* Greyed-out text */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .admin-grid {
+    grid-template-columns: 1fr;
+  }
+}
