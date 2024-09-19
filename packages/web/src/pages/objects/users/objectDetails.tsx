@@ -34,28 +34,28 @@ const UserObjectDetails = ({ objectData, objectType }: { objectData: Hotel | Air
           {/* Photo Gallery */}
           <div className="w-1/2 flex flex-col space-y-3">
             <img
-              src="https://via.placeholder.com/300"
+              src="https://picsum.photos/1000/300"
               alt="Thumbnail 1"
-              className="h-40 object-cover shadow-lg rounded-lg"
+              className="h-40 object-cover shadow-xl rounded-lg"
             />
             <img
-              src="https://via.placeholder.com/300"
+              src="https://picsum.photos/1000/301"
               alt="Thumbnail 2"
-              className="h-40 object-cover shadow-lg rounded-lg"
+              className="h-40 object-cover shadow-xl rounded-lg"
             />
             <img
-              src="https://via.placeholder.com/300"
+              src="https://picsum.photos/1000/302"
               alt="Thumbnail 3"
-              className="h-40 object-cover shadow-lg rounded-lg"
+              className="h-40 object-cover shadow-xl rounded-lg"
             />
           </div>
 
           {/* Main Image */}
           <div className="w-1/2">
             <img
-              src="https://via.placeholder.com/600"
+              src="https://picsum.photos/1000/1000"
               alt="Main"
-              className="w-full h-full object-cover shadow-lg rounded-lg"
+              className="w-full h-full object-cover shadow-xl rounded-lg"
             />
           </div>
         </div>
@@ -71,15 +71,6 @@ const UserObjectDetails = ({ objectData, objectType }: { objectData: Hotel | Air
               <div hidden={!isHotel(objectData)} className='ml-16'>
                 <StarsWithTooltip rating={stars as number} />
               </div>
-              {/* <div className="rating-bar-container ml-8">
-                <div className="rating-bar">
-                  <div
-                    className="rating-bar-fill"
-                    style={{ width: `${(objectData.rating as number)/100 * 100}%`, background: getDynamicGradient(objectData.rating as number), }}
-                  />
-                  <div className='tooltip'>1000</div>
-                </div>
-              </div> */}
               <RatingWithTooltip rating={objectData.rating as number} />
             </div>
             <div className="text-gray-500 m-4">{objectData.description}</div>
