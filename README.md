@@ -2,9 +2,9 @@
 
 Travel Website... (for now)
 
-## Good to have
+## Needed Programs
 - postgres (pgAdmin4) for local db
-- Postman
+- Postman (for endpoint testing)
 
 ## Installation
 
@@ -13,12 +13,12 @@ $ npm install
 ```
 
 ## Building the app
-1. Build the app
+1. Build the app ( in `./travel-buddy` )
 ```bash
 $ npm run build
 ```
 
-2. Go to `./packages/web` and create a symlink between the node_modules
+2. Go to `./travel-buddy/packages/web` and create a symlink between the node_modules (maybe unnecessary in the future)
 ```bash
 $ ln -s ../../node_modules node_modules  
 ```
@@ -32,12 +32,12 @@ $ ln -s ../../node_modules node_modules
 $ npm run server start
 
 ## in watch mode (hot realoading)
-$ npm run server:dev
+$ npm run server start:dev
 
 # web
 $ npm run web start
 
-# both in one (not working currently)
+# both in one (not working currently) (even when working not recommended)
 $ npm run start
 ```
 
