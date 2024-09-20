@@ -24,6 +24,9 @@ import { UserController } from './api/controllers/user.controller';
 import { Group } from './entities/group.entity';
 import { AuthModule } from './features/auth/auth.module';
 import { AuthController } from './api/controllers/auth.controller';
+import { GroupModule } from './features/group/group.module';
+import { GroupController } from './api/controllers/group.controller';
+import { UserGroupRole } from './entities/usergrouprole.entity';
 
 console.log({
   port: getDBPort(),
@@ -42,14 +45,23 @@ console.log({
       password: getDBPassword(),
       database: getDBName(),
       synchronize: true,
-      entities: [Test, Hotel, AirBnb, Address, User, Group],
+      entities: [Test, Hotel, AirBnb, Address, User, Group, UserGroupRole],
     }),
-    TypeOrmModule.forFeature([Test, Hotel, AirBnb, Address, User, Group]),
+    TypeOrmModule.forFeature([
+      Test,
+      Hotel,
+      AirBnb,
+      Address,
+      User,
+      Group,
+      UserGroupRole,
+    ]),
     AirBnbModule,
     AddressModule,
     HotelModule,
     UserModule,
     AuthModule,
+    GroupModule,
   ],
   controllers: [
     AppController,
@@ -57,6 +69,7 @@ console.log({
     HotelController,
     UserController,
     AuthController,
+    GroupController,
   ],
   providers: [
     AppService,
@@ -65,6 +78,7 @@ console.log({
     HotelModule,
     UserModule,
     AuthModule,
+    GroupModule,
   ],
 })
 export class AppModule {}

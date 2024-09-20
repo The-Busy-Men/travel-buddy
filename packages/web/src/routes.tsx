@@ -11,6 +11,7 @@ import {ObjectPage} from './pages/objects/admin';
 import AllObjectsPage from './pages/objects/admin/object-all';
 import { AdminMainPage } from './pages/admin/admin-overview';
 import UserObjectPage from './pages/objects/users';
+import GroupList from './pages/groups/groups-all';
 
 const HotelAdminPageWrapper = () => {
   const { hotelId } = useParams<{ hotelId: string }>();
@@ -49,6 +50,7 @@ const AppRoutes = () => {
         <Route path="/admin/airbnbs" element={<AllObjectsPage objectType='airbnb' />} />
         <Route path="/hotels/:hotelId" element={<HotelUserPageWrapper />} />
         <Route path="/airbnbs/:airbnbId" element={<AirBnbUserPageWrapper />} />
+        <Route path="/admin/groups" element={<GroupList />} />
         <Route path="/b/login" element={<LoginBusiness />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
