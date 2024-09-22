@@ -16,7 +16,7 @@ const GroupList: React.FC = () => {
     group.name.toLowerCase().includes(filterText.toLowerCase())
   );
 
-  const handleCardClick = (groupId: string) => {
+  const handleCardClick = (groupId: string) => {
     navigate(`/admin/groups/${groupId}`)
   }
 
