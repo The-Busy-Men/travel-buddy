@@ -1,2 +1,6 @@
 
-export const AirbnbForm = () => {}
+function AirbnbForm() {
+
+}
+
+export default AirbnbForm;

@@ -4,8 +4,12 @@ import { Label } from "../components/ui/label"
 import { Textarea } from "../components/ui/textarea"
 import AddressForm from "./address.form"
 import HotelForm from "./hotel.details"
+import { RadioGroup, RadioGroupItem } from "../components/ui/radio-group"
+import { useState } from "react"
 
 export default function ObjectCreateForm() {
+  const [type, setType] = useState('hotel')
+
   return (
     <div className="max-w-4xl mx-auto p-4">
       <form className="space-y-6">
@@ -32,7 +36,25 @@ export default function ObjectCreateForm() {
           />
         </div>
 
-        <HotelForm />
+        <div className="mt-2">
+          <Label htmlFor="type">Type</Label>
+          <RadioGroup defaultValue={type} id="type">
+            <div className="flex space-x-4">
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="hotel" id="hotel" onClick={() => setType('hotel')} />
+                <Label htmlFor="hotel">Hotel</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="airbnb" id="airbnb" onClick={() => setType('airbnb')} />
+                <Label htmlFor="airbnb">AirBnb</Label>
+              </div>
+            </div>
+          </RadioGroup>
+        </div>
+
+        {type === 'hotel' 
+          ? <HotelForm /> 
+          : undefined}
         
         <AddressForm />
         
