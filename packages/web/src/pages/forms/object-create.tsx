@@ -14,7 +14,7 @@ export default function ObjectCreateForm() {
     <div className="max-w-4xl mx-auto p-4">
       <form className="space-y-6">
         <div className="space-y-2">
-          <Label htmlFor="name">Name</Label>
+          <Label htmlFor="name" required>Name</Label>
           <Input id="name" placeholder="Enter property name" />
         </div>
 

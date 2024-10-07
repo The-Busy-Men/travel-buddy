@@ -27,6 +27,9 @@ import { AuthController } from './api/controllers/auth.controller';
 import { GroupModule } from './features/group/group.module';
 import { GroupController } from './api/controllers/group.controller';
 import { UserGroupRole } from './entities/usergrouprole.entity';
+import { PendingApproval } from './entities/approval.entity';
+import { ApprovalModule } from './features/object/approvals/approvals.module';
+import { ApprovalsController } from './api/controllers/approvals.controller';
 
 console.log({
   port: getDBPort(),
@@ -45,7 +48,16 @@ console.log({
       password: getDBPassword(),
       database: getDBName(),
       synchronize: true,
-      entities: [Test, Hotel, AirBnb, Address, User, Group, UserGroupRole],
+      entities: [
+        Test,
+        Hotel,
+        AirBnb,
+        Address,
+        User,
+        Group,
+        UserGroupRole,
+        PendingApproval,
+      ],
     }),
     TypeOrmModule.forFeature([
       Test,
@@ -55,6 +67,7 @@ console.log({
       User,
       Group,
       UserGroupRole,
+      PendingApproval,
     ]),
     AirBnbModule,
     AddressModule,
@@ -62,6 +75,7 @@ console.log({
     UserModule,
     AuthModule,
     GroupModule,
+    ApprovalModule,
   ],
   controllers: [
     AppController,
@@ -70,6 +84,7 @@ console.log({
     UserController,
     AuthController,
     GroupController,
+    ApprovalsController,
   ],
   providers: [
     AppService,
@@ -79,6 +94,7 @@ console.log({
     UserModule,
     AuthModule,
     GroupModule,
+    ApprovalModule,
   ],
 })
 export class AppModule {}
