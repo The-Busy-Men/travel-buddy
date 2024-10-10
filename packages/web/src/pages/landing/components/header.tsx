@@ -4,9 +4,11 @@ import { LuPalmtree } from "react-icons/lu";
 import Modal from '../../components/modal';
 import { useNavigate } from 'react-router-dom';
 import { isUserAllowed, UserRoles } from '../../utils/isUserAllowed';
+import { useAlert } from '../../../api/providers/alertContext';
 
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { showAlert } = useAlert();
   
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -28,7 +30,7 @@ const Header = () => {
         </span>
         <nav className="nav">
           <a href="/">Home</a>
-          <a href="#destinations">Destinations</a>
+          <a href="#destinations" onClick={() => showAlert('Test Alert', 'info')}>Destinations</a>
           <a href="#experiences">Experiences</a>
           <a href='/b/login'>Business</a>
           <a href="#contact" onClick={openModal}>Contact</a>

@@ -3,12 +3,11 @@ import {
   Column,
   PrimaryGeneratedColumn,
   ManyToOne,
-  ManyToMany,
-  JoinTable,
+  OneToMany,
 } from 'typeorm';
 import { Address } from './address.entity';
-import { Group } from './group.entity';
 import { UserRoles } from './utils/role.types';
+import { UserGroupRole } from './usergrouprole.entity';
 
 @Entity()
 export class User {
@@ -41,13 +40,8 @@ export class User {
   })
   roles: UserRoles[];
 
-  @ManyToMany(() => Group, (group) => group.users, { nullable: true })
-  @JoinTable({
-    name: 'user_groups',
-    joinColumn: { name: 'userId', referencedColumnName: 'id' },
-    inverseJoinColumn: { name: 'groupId', referencedColumnName: 'id' },
-  })
-  groups: Group[];
+  @OneToMany(() => UserGroupRole, (userGroupRole) => userGroupRole.user)
+  groupRoles: UserGroupRole[];
 
   @Column({ type: 'boolean', default: true })
   isActive: boolean;

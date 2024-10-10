@@ -24,6 +24,12 @@ import { UserController } from './api/controllers/user.controller';
 import { Group } from './entities/group.entity';
 import { AuthModule } from './features/auth/auth.module';
 import { AuthController } from './api/controllers/auth.controller';
+import { GroupModule } from './features/group/group.module';
+import { GroupController } from './api/controllers/group.controller';
+import { UserGroupRole } from './entities/usergrouprole.entity';
+import { PendingApproval } from './entities/approval.entity';
+import { ApprovalModule } from './features/object/approvals/approvals.module';
+import { ApprovalsController } from './api/controllers/approvals.controller';
 
 console.log({
   port: getDBPort(),
@@ -42,14 +48,34 @@ console.log({
       password: getDBPassword(),
       database: getDBName(),
       synchronize: true,
-      entities: [Test, Hotel, AirBnb, Address, User, Group],
+      entities: [
+        Test,
+        Hotel,
+        AirBnb,
+        Address,
+        User,
+        Group,
+        UserGroupRole,
+        PendingApproval,
+      ],
     }),
-    TypeOrmModule.forFeature([Test, Hotel, AirBnb, Address, User, Group]),
+    TypeOrmModule.forFeature([
+      Test,
+      Hotel,
+      AirBnb,
+      Address,
+      User,
+      Group,
+      UserGroupRole,
+      PendingApproval,
+    ]),
     AirBnbModule,
     AddressModule,
     HotelModule,
     UserModule,
     AuthModule,
+    GroupModule,
+    ApprovalModule,
   ],
   controllers: [
     AppController,
@@ -57,6 +83,8 @@ console.log({
     HotelController,
     UserController,
     AuthController,
+    GroupController,
+    ApprovalsController,
   ],
   providers: [
     AppService,
@@ -65,6 +93,8 @@ console.log({
     HotelModule,
     UserModule,
     AuthModule,
+    GroupModule,
+    ApprovalModule,
   ],
 })
 export class AppModule {}
