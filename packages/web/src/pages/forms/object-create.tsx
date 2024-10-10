@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
 import { Label } from "../components/ui/label"
@@ -13,27 +14,16 @@ import { Card, CardContent } from "../components/ui/card"
 import { isValidNumber, isValidString } from "./validation/validation"
 import AirbnbForm from "./airbnb.details"
 import { getUserId } from "../utils/getUserId"
-
-interface dataDict {
-  name: string;
-  description?: string;
-  amenities?: string;
-}
-
-interface hotelDataDict extends dataDict {
-  stars: number;
-  numRooms: number;
-  priceClass: PriceClass;
-}
-
-interface airbnbDataDict extends dataDict {
-  hostName: string;
-  bedrooms: number;
-  bathrooms: number;
-  isShared: boolean;
-}
+import { airbnbDataDict, hotelDataDict, useApproval } from "./hooks/useApproval"
+import { useNavigate } from 'react-router-dom';
+import { useAlert } from "../../api/providers/alertContext"
+import { Alert } from "../components/ui/alert"
 
 export default function ObjectCreateForm() {
+  const approval = useApproval()
+  const navigate = useNavigate()
+  const { showAlert } = useAlert()
+
   const [type, setType] = useState('hotel')
   
   const [name, setName] = useState('');
@@ -78,18 +68,25 @@ export default function ObjectCreateForm() {
         }
         return data;
       }
+
+      default: {
+        return {} as hotelDataDict;
+      }
     }
   }
   const createApprovalRequest = () => {
     const data = getData();
     const userId = getUserId()
 
-    const submitDto = {
+    const submitBody = {
       type: type,
       data: data,
       submittedBy: userId
     }
-    console.log(submitDto)
+
+    approval.createApprovalRequest.mutate({body: submitBody})
+    showAlert('Submission successful', 'success');
+    navigate('/')
   }
 
   const canSubmit = (): boolean => {
@@ -106,6 +103,7 @@ export default function ObjectCreateForm() {
 
   return (
     <div className="max-w-4xl mx-auto p-4">
+      <Alert />
       <form className="space-y-6">
         <div className="space-y-2">
           <Label htmlFor="name" required>Name</Label>
