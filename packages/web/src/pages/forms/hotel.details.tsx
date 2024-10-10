@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Label } from "../components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select";
 import StarsByAmount from "./components/starsByAmount";
@@ -6,10 +5,16 @@ import { Input } from "../components/ui/input";
 import { PriceClass } from "../../api/entities";
 import { RequiredValidInput } from "./components/requiredInput";
 
-function HotelForm() {
-  const [starValue, setStarValue] = useState("")
-  const [priceClassValue, setPriceClass] = useState<PriceClass>(PriceClass.budget)
-  const [numRooms, setNumRooms] = useState('');
+interface HotelValues {
+  starValue: string;
+  setStarValue: (value: string) => void;
+  priceClassValue: number;
+  setPriceClass: (value: number) => void;
+  numRooms: string;
+  setNumRooms: (value: string) => void;
+}
+
+function HotelForm({starValue, setStarValue, priceClassValue, setPriceClass, numRooms, setNumRooms}: HotelValues) {
 
   const changePriceClass = (priceClass: string) => {
     switch (priceClass) {
@@ -37,7 +42,7 @@ function HotelForm() {
       <h3 className="text-lg font-semibold">Hotel Details</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="space-y-2">
-          <Label htmlFor="stars">Stars</Label>
+          <Label htmlFor="stars" required>Stars</Label>
           <Select value={starValue} onValueChange={setStarValue}>
             <SelectTrigger id="stars" className="w-[200px]">
               <SelectValue placeholder="Amount of stars" />
@@ -68,19 +73,19 @@ function HotelForm() {
         </div>
       </div>
       <div>
-      <Label htmlFor="priceClass">Price Class</Label>
-      <Select value={PriceClass[priceClassValue]} onValueChange={(e) => changePriceClass(e)}>
-          <SelectTrigger id="priceClass" className="w-[200px]">
-            <SelectValue placeholder="Select Price class" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="budget">Budget</SelectItem>
-            <SelectItem value="low">Low</SelectItem>
-            <SelectItem value="medium">Medium</SelectItem>
-            <SelectItem value="high">High</SelectItem>
-            <SelectItem value="luxury">Luxury</SelectItem>
-          </SelectContent>
-        </Select>
+        <Label htmlFor="priceClass" required>Price Class</Label>
+        <Select value={PriceClass[priceClassValue]} onValueChange={(e) => changePriceClass(e)}>
+            <SelectTrigger id="priceClass" className="w-[200px]">
+              <SelectValue placeholder="Select Price class" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="budget">Budget</SelectItem>
+              <SelectItem value="low">Low</SelectItem>
+              <SelectItem value="medium">Medium</SelectItem>
+              <SelectItem value="high">High</SelectItem>
+              <SelectItem value="luxury">Luxury</SelectItem>
+            </SelectContent>
+          </Select>
       </div>
     </div>
     </>
