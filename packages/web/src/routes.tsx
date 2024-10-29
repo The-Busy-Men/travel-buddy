@@ -13,6 +13,7 @@ import { AdminMainPage } from './pages/admin/admin-overview';
 import UserObjectPage from './pages/objects/users';
 import GroupList from './pages/groups/groups-all';
 import ObjectCreateForm from './pages/forms/object-create';
+import ApprovalList from './pages/approvals/admin/approvalList';
 
 const HotelAdminPageWrapper = () => {
   const { hotelId } = useParams<{ hotelId: string }>();
@@ -92,6 +93,7 @@ const AppRoutes = () => {
         {/* Testing Routes */}
         <Route path="/test" element={<Test />} />
         <Route path='/object/test' element={<ObjectCreateForm />} />
+        <Route path='/test/approval' element={<ApprovalList />} />
 
         {/* Error Routes */}
         <Route path="*" element={<NotFound />} />

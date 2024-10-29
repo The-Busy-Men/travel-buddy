@@ -1,8 +1,9 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { UUID } from 'crypto';
 import { getApiClient } from '../../../api/client';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import { PriceClass } from '../../../api/entities';
+import { getApprovalStatusFromQuery } from '../../approvals/utils/approvalFromQuery';
 
 interface dataDict {
   name: string;
@@ -23,7 +24,28 @@ export interface airbnbDataDict extends dataDict {
   isShared: boolean;
 }
 
-export const useApproval = () => {
+export enum ApprovalStatus {
+  pending = 'pending',
+  approved = 'approved',
+  rejected = 'rejected',
+  none = '',
+}
+
+export const useApproval = (statusQuery: string[] | null = ['']) => {
+  const apprStatus = getApprovalStatusFromQuery(statusQuery);
+  const { data: allApprovalData, isLoading: allApprovalLoading } = useQuery({
+    queryKey: ['approvals', 'admin', apprStatus],
+    queryFn: async () => {
+      const query =
+        apprStatus.length > 0
+          ? `?${apprStatus.map((status) => `status=${status}`).join('&')}`
+          : '';
+
+      const res = await getApiClient().get(`/approvals${query}`);
+      return res.data;
+    },
+  });
+
   const createApprovalRequest = useMutation({
     mutationFn: async ({
       body,
@@ -42,5 +64,5 @@ export const useApproval = () => {
     },
   });
 
-  return { createApprovalRequest };
+  return { createApprovalRequest, allApprovalData, allApprovalLoading };
 };

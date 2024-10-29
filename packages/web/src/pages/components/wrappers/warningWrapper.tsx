@@ -32,7 +32,7 @@ const WarningWrapper: React.FC<WarningWrapperProps> = ({
   const values = getValues(state)
   return (
     <>
-      <MovingBorder color={values.color}>
+      <MovingBorder>
         <div className={`relative p-4 m-2 dashed-border ${className}`}>
           {/* Warning message with icon */}
           <div className={`flex items-center mb-4 p-2 rounded-md bg-opacity-20 ${values.background} w-auto`} style={{color: values.color}}>

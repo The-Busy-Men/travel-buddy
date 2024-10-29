@@ -27,8 +27,14 @@ export class ApprovalsController {
     description:
       'Forbidden. You do not have the required role to access this resource.',
   })
-  getAllApprovalsByStatus(@Query('status') query: ApprovalStatus) {
-    return this.approvalService.getAllApprovalsByStatus(query);
+  getAllApprovalsByStatus(@Query('status') status?: string | string[]) {
+    const statusArray: ApprovalStatus[] = Array.isArray(status)
+      ? status.map((s) => s.trim() as ApprovalStatus)
+      : status
+        ? [status.trim() as ApprovalStatus]
+        : [];
+
+    return this.approvalService.getAllApprovalsByStatus(statusArray);
   }
 
   @Get('/self')

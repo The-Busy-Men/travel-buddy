@@ -4,7 +4,7 @@ import { UUID } from 'crypto';
 import { EditApprovalDto, NewApprovalDto } from 'src/api/dto/approval.dto';
 import { PendingApproval } from 'src/entities/approval.entity';
 import { ApprovalStatus } from 'src/entities/utils/approvalStatus.type';
-import { Repository } from 'typeorm';
+import { In, Repository } from 'typeorm';
 
 @Injectable()
 export class ApprovalService {
@@ -13,8 +13,9 @@ export class ApprovalService {
     private readonly approvalRepository: Repository<PendingApproval>,
   ) {}
 
-  async getAllApprovalsByStatus(status?: ApprovalStatus) {
-    const whereCondition = status !== undefined ? { status: status } : {};
+  async getAllApprovalsByStatus(statuses?: ApprovalStatus[]) {
+    const whereCondition =
+      statuses && statuses.length > 0 ? { status: In(statuses) } : {};
 
     return await this.approvalRepository.find({
       where: whereCondition,
