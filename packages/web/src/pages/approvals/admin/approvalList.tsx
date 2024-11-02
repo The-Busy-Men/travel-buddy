@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Loader } from "../../components/ui/loader";
 import { useApproval } from "../../forms/hooks/useApproval";
 import { useNavigate, useSearchParams } from "react-router-dom";
@@ -29,22 +29,18 @@ function ApprovalList() {
 
   const filterOptions = [{id: 'pending', label: 'Pending'}, {id: 'approved', label: 'Approved'}, {id: 'rejected', label: 'Rejected'}]
 
-  const [activeFilters, setActiveFilters] = useState<string[]>([])
-  console.log(activeFilters)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [_activeFilters, setActiveFilters] = useState<string[]>([])
 
   const handleFilterChange = (selectedFilters: string[]) => {
     setActiveFilters(selectedFilters)
     setSearchParams({status: selectedFilters})
+    setApprovalQuery(selectedFilters)
   }
-
-  useEffect(() => {
-    // Update local state if the URL query param changes
-    setApprovalQuery(statusQueryParams);
-  }, [statusQueryParams]);
 
   return (
   <>
-  <Loader show={allApprovalLoading} />
+  <Loader show={allApprovalLoading} fullscreen />
   <div className="flex justify-center mb-4">
     <h1 className="text-3xl font-bold">All Approvals</h1>
   </div>
@@ -58,7 +54,7 @@ function ApprovalList() {
 
       return (
       <>
-      <Card className={`max-w-[100%] m-2 p-1 cursor-pointer ${values.color}`} onClick={() => navigate(`/approvals/${approval.id}`)}>
+      <Card className={`max-w-[100%] m-2 p-1 cursor-pointer ${values.color}`} onClick={() => navigate(`/test/approval/${approval.id}`)}>
         <CardTitle className="p-1">
           <div className="flex justify-between w-full">
             <span>{approval.data.name}</span>

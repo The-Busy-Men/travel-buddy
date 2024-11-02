@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Post, Query, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Post,
+  Query,
+  UseGuards,
+} from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { RolesGuard } from 'src/core/guards/role.guard';
 import { Roles } from 'src/core/decorators/role.decorator';
@@ -35,6 +43,16 @@ export class ApprovalsController {
         : [];
 
     return this.approvalService.getAllApprovalsByStatus(statusArray);
+  }
+
+  @Get('/get/:approvalId')
+  @Roles('user')
+  @ApiResponse({
+    status: 200,
+    description: 'Get approval request by id',
+  })
+  getApprovalById(@Param('approvalId') approvalId: UUID) {
+    return this.approvalService.getApprovalById(approvalId);
   }
 
   @Get('/self')

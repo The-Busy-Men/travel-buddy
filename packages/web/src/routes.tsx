@@ -14,6 +14,8 @@ import UserObjectPage from './pages/objects/users';
 import GroupList from './pages/groups/groups-all';
 import ObjectCreateForm from './pages/forms/object-create';
 import ApprovalList from './pages/approvals/admin/approvalList';
+import PreviewObjectPage from './pages/approvals/user/previewObject';
+import { UUID } from 'crypto';
 
 const HotelAdminPageWrapper = () => {
   const { hotelId } = useParams<{ hotelId: string }>();
@@ -34,6 +36,11 @@ const AirBnbUserPageWrapper = () => {
   const { airbnbId } = useParams<{ airbnbId: string }>();
   return <UserObjectPage objectId={airbnbId!} objectType="airbnb" />;
 };
+
+const PreviewPageWrapper = () => {
+  const { approvalId } = useParams<{ approvalId: string }>();
+  return <PreviewObjectPage approvalId={approvalId! as UUID} />
+}
 
 const AppRoutes = () => {
   // Check if the current route starts with "admin"
@@ -94,6 +101,7 @@ const AppRoutes = () => {
         <Route path="/test" element={<Test />} />
         <Route path='/object/test' element={<ObjectCreateForm />} />
         <Route path='/test/approval' element={<ApprovalList />} />
+        <Route path='/test/approval/:approvalId' element={<PreviewPageWrapper />} />
 
         {/* Error Routes */}
         <Route path="*" element={<NotFound />} />

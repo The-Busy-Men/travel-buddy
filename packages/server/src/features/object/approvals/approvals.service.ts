@@ -38,6 +38,10 @@ export class ApprovalService {
     });
   }
 
+  async getApprovalById(approvalId: UUID) {
+    return await this.approvalRepository.findOneBy({ id: approvalId });
+  }
+
   async submitApproval(data: NewApprovalDto) {
     return await this.approvalRepository.save({
       type: data.type,
