@@ -13,6 +13,10 @@ import { FilterButton } from "../../components/ui/filterButton";
 function ApprovalList() {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [_activeFilters, setActiveFilters] = useState<string[]>([])
+
   const statusQueryParams = searchParams.getAll('status') || '';
   const [approvalQuery, setApprovalQuery] = useState(statusQueryParams);
   const { allApprovalData, allApprovalLoading } = useApproval(approvalQuery);
@@ -29,14 +33,21 @@ function ApprovalList() {
 
   const filterOptions = [{id: 'pending', label: 'Pending'}, {id: 'approved', label: 'Approved'}, {id: 'rejected', label: 'Rejected'}]
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [_activeFilters, setActiveFilters] = useState<string[]>([])
-
   const handleFilterChange = (selectedFilters: string[]) => {
     setActiveFilters(selectedFilters)
     setSearchParams({status: selectedFilters})
     setApprovalQuery(selectedFilters)
   }
+
+  const editedFilterOptions = [{id: 'edited', label: 'Not dealt with Approvals'}]
+
+  const [hasBeenEdited, setHasBeenEdited] = useState(true);
+
+  const handleEditFilterChange = () => {
+    setHasBeenEdited(!hasBeenEdited);
+  }
+
+  const filteredApprovalData = hasBeenEdited ? allApprovalData : allApprovalData?.filter((approval: any) => approval.editedBy == null);
 
   return (
   <>
@@ -45,10 +56,11 @@ function ApprovalList() {
     <h1 className="text-3xl font-bold">All Approvals</h1>
   </div>
   <div className="max-w-fit mx-auto">
-    <FilterButton options={filterOptions} onFilterChange={handleFilterChange} />
+    <FilterButton options={filterOptions} onFilterChange={handleFilterChange} label='Status Filter' />
+    <FilterButton options={editedFilterOptions} onFilterChange={handleEditFilterChange} label='Edited' />
   </div>
   <div className="grid grid-cols-3 mb-4">
-    {allApprovalData?.map((approval: any)=> {
+    {filteredApprovalData?.map((approval: any)=> {
       const values = getValuesByStatus(approval.status)
       const textColor = values.color.replace('border', 'text');
 
