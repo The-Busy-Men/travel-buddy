@@ -10,9 +10,11 @@ import { CiSquareCheck } from "react-icons/ci";
 import { CiSquareQuestion } from "react-icons/ci";
 import { CiSquareRemove } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
+import { useAlert } from "../../../api/providers/alertContext";
 
 const PreviewObjectPage = ({ approvalId }: { approvalId: UUID;}) => {
   const navigate = useNavigate();
+  const { showAlert } = useAlert();
   const { approvalData, approvalDataIsLoading, updateApprovalStatus } = useApprovalById(approvalId);
 
   const dataAsObject = approvalData?.type === 'hotel' ? approvalData?.data as Hotel : approvalData?.data as AirBnb;
@@ -20,7 +22,8 @@ const PreviewObjectPage = ({ approvalId }: { approvalId: UUID;}) => {
 
   const handleStatusChange = (newStatus: string) => {
     updateApprovalStatus.mutate({body: {approvalId: approvalId, status: newStatus}});
-    navigate('/test/approval')
+    navigate('/admin/approvals')
+    showAlert(`Request (${approvalId}) has been set to: ${newStatus}`, 'success')
   }
   return (
     <>

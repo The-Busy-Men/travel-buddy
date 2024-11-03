@@ -9,6 +9,7 @@ import { CiCircleMore } from "react-icons/ci";
 import { CiCircleRemove } from "react-icons/ci";
 import { CiCircleInfo } from "react-icons/ci";
 import { FilterButton } from "../../components/ui/filterButton";
+import { CiEdit } from "react-icons/ci";
 
 function ApprovalList() {
   const navigate = useNavigate();
@@ -66,10 +67,18 @@ function ApprovalList() {
 
       return (
       <>
-      <Card className={`max-w-[100%] m-2 p-1 cursor-pointer ${values.color}`} onClick={() => navigate(`/test/approval/${approval.id}`)}>
+      <Card className={`max-w-[100%] m-2 p-1 cursor-pointer ${values.color}`} onClick={() => navigate(`/admin/approvals/${approval.id}`)}>
         <CardTitle className="p-1">
           <div className="flex justify-between w-full">
             <span>{approval.data.name}</span>
+            {approval?.editedBy === null && 
+            <div className={`text-black relative group ml-auto`}>
+              <CiEdit />
+              <div className={`absolute opacity-80 bottom-full mb-1 hidden w-max whitespace-nowrap bg-black text-white text-sm px-2 py-1 rounded-md shadow-lg group-hover:block font-medium`}>
+                Not Edited
+              </div>
+            </div>
+            }
             <div className={`${textColor} relative group`}>
               <values.Icon />
               <div className={`absolute opacity-80 bottom-full mb-1 hidden w-max whitespace-nowrap bg-black text-white text-sm px-2 py-1 rounded-md shadow-lg group-hover:block font-medium`}>

@@ -73,6 +73,8 @@ const AppRoutes = () => {
           <Route path='/admin/groups/:groupId' element={undefined} />
           <Route path='/admin/analytics' element={undefined} />
           <Route path='/admin/notifications' element={undefined} />
+          <Route path='/admin/approvals' element={<ApprovalList />} />
+          <Route path='/admin/approvals/:approvalId' element={<PreviewPageWrapper />} />
 
           {/* Moderator */}
           <Route path='/admin/reports' element={undefined} />
@@ -100,8 +102,6 @@ const AppRoutes = () => {
         {/* Testing Routes */}
         <Route path="/test" element={<Test />} />
         <Route path='/object/test' element={<ObjectCreateForm />} />
-        <Route path='/test/approval' element={<ApprovalList />} />
-        <Route path='/test/approval/:approvalId' element={<PreviewPageWrapper />} />
 
         {/* Error Routes */}
         <Route path="*" element={<NotFound />} />
