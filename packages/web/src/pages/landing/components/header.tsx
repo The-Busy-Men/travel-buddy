@@ -7,6 +7,8 @@ import { isUserAllowed, UserRoles } from '../../utils/isUserAllowed';
 import { useAlert } from '../../../api/providers/alertContext';
 import { HelpCircle, Home, Settings, User } from 'lucide-react';
 import { RightSidebar } from '../../components/ui/rightSidebar';
+import { isUserLoggedIn } from '../../utils/isUserLoggedIn';
+import { ROUTE } from '../../../routes';
 
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -24,14 +26,21 @@ const Header = () => {
   };
 
   const menuItems = [
-    { id: '', label: 'Home', icon: <Home className="h-4 w-4" /> },
-    { id: 'profile', label: 'Profile', icon: <User className="h-4 w-4" /> },
-    { id: 'settings', label: 'Settings', icon: <Settings className="h-4 w-4" /> },
-    { id: 'help', label: 'Help', icon: <HelpCircle className="h-4 w-4" /> },
+    { id: '', label: 'Home', icon: <Home className="h-4 w-4 text-primary" /> },
+    { id: 'profile', label: 'Profile', icon: <User className="h-4 w-4 text-primary" /> },
+    { id: 'settings', label: 'Settings', icon: <Settings className="h-4 w-4 text-primary" /> },
+    { id: 'help', label: 'Help', icon: <HelpCircle className="h-4 w-4 text-primary" /> },
   ]
 
   const handleMenuItemClick = (id: string) => {
-    navigate(`/${id}`)
+    const alwaysValidPaths = ['', 'help'];
+
+    if (!isUserLoggedIn() && !alwaysValidPaths.includes(id)) {
+      navigate(ROUTE.LOGIN)
+    } else {
+      navigate(`/${id}`)
+    }
+    
   }
 
   return (

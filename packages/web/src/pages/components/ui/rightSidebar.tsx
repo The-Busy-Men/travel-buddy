@@ -22,11 +22,11 @@ export function RightSidebar({ menuItems, onMenuItemClick }: RightSidebarProps) 
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         <Button variant="ghost" size="sm" className="p-0">
-          <Menu className="h-5 w-5 text-black" />
+          <Menu className="h-5 w-5 text-slate-800" />
           <span className="sr-only">Open menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent side="right" className="bg-black bg-opacity-20" aria-describedby='' >
+      <SheetContent side="right" className="bg-black bg-opacity-30 w-[25%]" aria-describedby='' >
         <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
         <ScrollArea className="h-[calc(100vh-4rem)] pb-10">
           <nav className="flex flex-col space-y-3">

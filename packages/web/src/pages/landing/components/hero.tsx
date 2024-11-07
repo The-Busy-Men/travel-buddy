@@ -10,8 +10,8 @@ const Hero = () => {
         <h1>Your Next Adventure Awaits</h1>
         <p>Discover curated travel experiences tailored just for you.</p>
         <div className="search-bar">
-          <input type="text" placeholder="Where do you want to go?" />
-          <input type="date" />
+          <input type="text" placeholder="Where do you want to go?" className='shadow-md min-w-[30%]' />
+          <input type="date" className='shadow-md' />
           <button className="btn-primary" onClick={() => showAlert('Test Alert 2', 'success')}>Search</button>
         </div>
       </div>
