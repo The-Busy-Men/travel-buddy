@@ -1,16 +1,18 @@
 import React from 'react';
 import './hero.css';
+import { useAlert } from '../../../api/providers/alertContext';
 
 const Hero = () => {
+  const {showAlert} = useAlert();
   return (
     <section className="hero">
       <div className="hero-content">
         <h1>Your Next Adventure Awaits</h1>
         <p>Discover curated travel experiences tailored just for you.</p>
         <div className="search-bar">
-          <input type="text" placeholder="Where do you want to go?" />
-          <input type="date" />
-          <button className="btn-primary">Search</button>
+          <input type="text" placeholder="Where do you want to go?" className='shadow-md min-w-[30%]' />
+          <input type="date" className='shadow-md' />
+          <button className="btn-primary" onClick={() => showAlert('Test Alert 2', 'success')}>Search</button>
         </div>
       </div>
     </section>

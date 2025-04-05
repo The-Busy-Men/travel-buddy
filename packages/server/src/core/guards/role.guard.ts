@@ -2,6 +2,7 @@ import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { JwtService } from '@nestjs/jwt';
 import { Observable } from 'rxjs';
+import { isRoleHigherOrEqual, UserRoles } from 'src/entities/utils/role.types';
 
 @Injectable()
 export class RolesGuard implements CanActivate {
@@ -30,7 +31,11 @@ export class RolesGuard implements CanActivate {
       const decodedToken = this.jwtService.verify(token);
       const userRoles = decodedToken.roles || []; // Default to empty array if roles are not present
 
-      return roles.some((role) => userRoles.includes(role));
+      return roles.some((requiredRole) =>
+        userRoles.some((userRole) =>
+          isRoleHigherOrEqual(userRole as UserRoles, requiredRole as UserRoles),
+        ),
+      );
     } catch (err) {
       return false;
     }

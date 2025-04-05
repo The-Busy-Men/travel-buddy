@@ -12,7 +12,7 @@ import { UserModule } from '../user/user.module';
     UserModule,
     JwtModule.register({
       secret: getJwtKey(), // Use environment variables for security
-      signOptions: { expiresIn: '1h' }, // Set token expiration time
+      signOptions: { expiresIn: '6h' }, // Set token expiration time
     }),
   ],
   providers: [AuthService, JwtStrategy], // Add JwtStrategy

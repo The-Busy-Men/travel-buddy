@@ -34,6 +34,20 @@ const adminItems = [
     requiredRoles: [UserRoles.admin, UserRoles.super_admin],
   },
   {
+    title: 'Group Overview',
+    description: 'View all Groups that have been created',
+    route: '/admin/groups',
+    disabled: false,
+    requiredRoles: [UserRoles.admin, UserRoles.super_admin],
+  },
+  {
+    title: 'Approval Requests',
+    description: 'See all Approval Requests that have been created',
+    route: '/admin/approvals',
+    disabled: false,
+    requiredRoles: [UserRoles.admin, UserRoles.super_admin],
+  },
+  {
     title: 'Reports',
     description: 'View reports from Users and see open Customer Service chats',
     route: '/admin/reports',
