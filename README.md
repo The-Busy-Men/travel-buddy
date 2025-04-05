@@ -1,6 +1,6 @@
 ## Description
 
-Travel Website... (for now)
+Travel Website - A guide to the best travel experiences at your destination, focusing on luxury or hiking adventures. Includes an AI-powered chat feature that suggests personalized travel itineraries based on user preferences, which can also be booked directly through the platform.
 
 ## Needed Programs
 - postgres (pgAdmin4) for local db
@@ -60,4 +60,4 @@ $ npm run test:cov
 
 ##### Developers
 - Author - [Tim Fuchs](https://github.com/FixFaxt)
-- More - [No One :(]()
+- Co-Author: [Rayan Ben Tanfous](https://github.com/FixFaxt)
