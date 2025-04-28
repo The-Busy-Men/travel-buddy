@@ -1,5 +1,5 @@
 ## Description
-
+For learning purposes only:
 Travel Website - A guide to the best travel experiences at your destination, focusing on luxury or hiking adventures. Includes an AI-powered chat feature that suggests personalized travel itineraries based on user preferences, which can also be booked directly through the platform.
 
 ## Needed Programs
