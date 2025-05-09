@@ -1,5 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToMany } from 'typeorm';
-import { User } from './user.entity';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { UserGroupRole } from './usergrouprole.entity';
 
 @Entity()
 export class Group {
@@ -9,6 +9,6 @@ export class Group {
   @Column({ type: 'varchar', length: 255 })
   name: string;
 
-  @ManyToMany(() => User, (user) => user.groups)
-  users: User[];
+  @OneToMany(() => UserGroupRole, (userGroupRole) => userGroupRole.group)
+  members: UserGroupRole[];
 }

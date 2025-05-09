@@ -4,6 +4,7 @@ import { useObjects } from './hooks/useObjects';
 import { Hotel, AirBnb } from '../../../api/entities';
 import { isUserAllowed, UserRoles } from '../../utils/isUserAllowed';
 import { useNavigate } from 'react-router-dom';
+import { Button } from '../../components/ui/button';
 
 interface AllObjectPageProps {
   objectType: 'hotel' | 'airbnb';
@@ -34,11 +35,16 @@ export const AllObjectsPage = ({ objectType }: AllObjectPageProps) => {
 
   // Map through the array of objects and render ObjectDetails for each
   return (
-    <div className="object-list">
-      {data.map((objectData: Hotel | AirBnb, index: number) => (
-        <ObjectDetails key={index} objectData={objectData} objectType={objectType} />
-      ))}
-    </div>
+    <>
+      <div className='flex justify-center'>
+        <Button type='submit' className="mt-10 w-fit bg-[#ff5a5f] hover:bg-[#ff5a5f]/90" onClick={() => navigate('/object/test')}>Create Object</Button>
+      </div>
+      <div className="object-list">
+        {data.map((objectData: Hotel | AirBnb, index: number) => (
+          <ObjectDetails key={index} objectData={objectData} objectType={objectType} />
+        ))}
+      </div>
+    </>
   );
 };
 
